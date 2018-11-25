@@ -34,6 +34,8 @@ If ($servername -eq "" -and $databasename -eq "") {
     Exit
 }
 
+Clear-Host
+
 #remove previous files
 Remove-Item ".\*.txt"
 
