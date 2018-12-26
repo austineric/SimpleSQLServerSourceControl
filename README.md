@@ -20,9 +20,11 @@
 1.  Download the Compare plugin zip file from <https://github.com/pnedev/compare-plugin/releases>
 2. Extract zip file into a location on your computer
 3. Copy file contents (ie ComparePlugin.dll and ComparePlugin subfolder) into C:\Program Files\Notepad++\plugins
-4. Go to Notepad++ Settings > Import > Import plugin(s), navigate to C:\Program Files\Notepad++\plugins, and selecte ComparePlugin.dll
+4. Go to Notepad++ Settings > Import > Import plugin(s), navigate to C:\Program Files\Notepad++\plugins, and select ComparePlugin.dll
 5. Notepad++ will require a restart
-
+6. Now after running SourceControl.bat you can run the compare plugin: ![](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/CompareMenu.png?raw=true)
+7. Which will allow you to see changes between versions: ![](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/Compare.png?raw=true)
+8. 
 
 
 
