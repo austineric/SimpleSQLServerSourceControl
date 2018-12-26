@@ -1,25 +1,23 @@
 ﻿
-$sourcelist=New-Object System.Data.DataTable
-$sourcelist.Columns.Add("Server")
-$sourcelist.Columns.Add("Database")
+$location=(Get-Location).Path
 
-#****** MANUALLY ADD SERVERS AND DATABASES HERE ******#
-#example: $sourcelist.Rows.Add("ServerName","DatabaseName")
-$sourcelist.Rows.Add("","")
+#retrieve list of servers and databases from ServersAndDatabases.txt
+$sourcelist=(Import-Csv -LiteralPath ".\ServersAndDatabases.txt")
 
-If ($sourcelist.Server -eq "" -and $sourcelist.Database -eq "") {
+#notify and exit if no servers and databases have been added
+If ($sourcelist.Count -eq 0) {
     Clear-Host
-    Write-Host "Please add server and database names in the SourceControl.ps1 script located at" (Get-Location).Path
-    Write-Host "Exiting now."
+    Write-Host "Please add server and database names to $location\ServersAndDatabases.txt"
+    Write-Host "Exiting now"
     Pause
     Exit
 }
 
-#if there are single values in the array set the variables to those values
-If ($sourcelist.Rows.Count -eq 1) {$servername=$sourcelist.Server; $databasename=$sourcelist.Database}
+#if there are single values set the variables to those values
+If (($sourcelist | Measure-Object).Count -eq 1) {$servername=$sourcelist.Server; $databasename=$sourcelist.Database}
 
 #if there are multiple servers and databases display a list to choose from
-If ($sourcelist.Rows.Count -gt 1) {
+If (($sourcelist | Measure-Object).Count -gt 1) {
 $sourcelist | Out-GridView -OutputMode Single -Title "Choose a data source" | ForEach {
     $servername=$_.Server
     $databasename=$_.Database
@@ -37,7 +35,7 @@ If ($servername -eq "" -and $databasename -eq "") {
 Clear-Host
 
 #remove previous files
-Remove-Item ".\*.txt"
+Remove-Item ".\*.txt" -Exclude "ServersAndDatabases.txt"
 
 #get data from source control table
 $eventquery="SELECT [RowID], [EventTimestamp], [Server], [Database], [User], [ObjectName], [ObjectType], [Action] FROM SourceControl ORDER BY RowID DESC;"
