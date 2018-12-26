@@ -12,10 +12,10 @@
 
 ## Usage
 1. Double-click SourceControl.bat
-2. If you have entered more than one server and database into ServersAndDatabase.txt then you will be presented with a list to choose from, if only one has been entered then it will automatically be used
-3. You will be presented with a list of rows from the SourceControl table from which one or more rows can be selected (use Control or Shift to select multiple rows; you can also filter the list using the Filter bar at the top)
+2. If you have entered more than one server and database into ServersAndDatabase.txt you will be presented with a list to choose from, if only one has been entered then it will be used automatically
+3. You will be presented with a list of rows from the SourceControl table from which one or more rows can be selected (use Control or Shift to select multiple rows, you can also filter the list using the Filter bar at the top)
 4. After clicking "OK" each file that was selected is opened in a separate tab in Notepad++
-5. The event definition can be used for reverting to a previous version of an object or, if the Compare plugin is installed (see below for instructions) for comparing changes between versions
+5. The event definition can be used for reverting to a previous version of an object or, if the Compare plugin is installed, for comparing changes between versions (see below for Compare plugin installation instructions)
 
 ### Installing Compare Plugin
 1.  Download the Compare plugin zip file from <https://github.com/pnedev/compare-plugin/releases>
