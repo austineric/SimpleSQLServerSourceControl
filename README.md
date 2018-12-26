@@ -6,9 +6,8 @@
 <br>
 1. Clone repo to local directory **or** download and extract zip file from Github to a location on your computer (ie Documents)
 2. Open and run SqlScript.sql within the SQL Server database of your choosing (can be run on multiple databases/servers)
-3. Open ServersAndDatabases.txt and enter the server name/s and database name/s the SQL script was run on (use the following format, note that the first line is a header line and should be left alone):
-![Image](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/ServersAndDatabasesExample.png?raw=true)
-5. Installation is complete
+3. Open ServersAndDatabases.txt and enter the server name/s and database name/s the SQL script was run on (use the following format, note that the first line is a header line and should be left alone): ![](https://github.com/austineric/Images/blob/master/SimpleSQLServerSourceControl/ServersAndDatabasesExample.png?raw=true)
+4. Installation is complete
 
 ## Usage
 1. Double-click SourceControl.bat
@@ -23,8 +22,9 @@
 3. Copy file contents (ie ComparePlugin.dll and ComparePlugin subfolder) into C:\Program Files\Notepad++\plugins
 4. Go to Notepad++ Settings > Import > Import plugin(s), navigate to C:\Program Files\Notepad++\plugins, and select ComparePlugin.dll
 5. Notepad++ will require a restart
-6. Now after running SourceControl.bat you can run the compare plugin: ![](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/CompareMenu.png?raw=true)
-7. Which will allow you to see changes between versions: ![](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/Compare.png?raw=true)
+6. Now after running SourceControl.bat you can run the compare plugin: ![](https://github.com/austineric/Images/blob/master/SimpleSQLServerSourceControl/CompareMenu.png?raw=true)
+7. Which will allow you to see changes between versions: ![](https://github.com/austineric/Images/blob/master/SimpleSQLServerSourceControl/Compare.png?raw=true)
+
 
 
 
