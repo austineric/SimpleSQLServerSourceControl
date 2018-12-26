@@ -2,6 +2,11 @@
 
 ## Installation
 (Designed to work with Notepad++ <https://notepad-plus-plus.org/>)
+<br>
+<br>
+Clone repo to local directory 
+<br>
+Or
 1. Download zip file from GitHub
 2. Extract zip file into a location on your computer (ie Documents)
 3. Open and run SqlScript.sql within the SQL Server database of your choosing (can be run on multiple databases/servers)
