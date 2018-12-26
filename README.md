@@ -23,10 +23,7 @@
 4. Go to Notepad++ Settings > Import > Import plugin(s), navigate to C:\Program Files\Notepad++\plugins, and select ComparePlugin.dll
 5. Notepad++ will require a restart
 6. Now after running SourceControl.bat you can run the compare plugin: ![](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/CompareMenu.png?raw=true)
-7. Which will allow you to see changes between versions: ![](https://raw.githubusercontent.com/austineric/SimpleSQLServerSourceControl/master/Images/Compare.png)
-8. 
-8. 
-
+7. Which will allow you to see changes between versions: ![](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/Compare.png?raw=true)
 
 
 
