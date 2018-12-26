@@ -4,13 +4,9 @@
 (Designed to work with Notepad++ <https://notepad-plus-plus.org/>)
 <br>
 <br>
-Clone repo to local directory 
-<br>
-Or
-1. Download zip file from GitHub
-2. Extract zip file into a location on your computer (ie Documents)
-3. Open and run SqlScript.sql within the SQL Server database of your choosing (can be run on multiple databases/servers)
-4. Open ServersAndDatabases.txt and enter the server name/s and database name/s the SQL script was run on (use the following format, note that the first line is a header line and should be left alone):
+1. Clone repo to local directory **or** download and extract zip file from Github to a location on your computer (ie Documents)
+2. Open and run SqlScript.sql within the SQL Server database of your choosing (can be run on multiple databases/servers)
+3. Open ServersAndDatabases.txt and enter the server name/s and database name/s the SQL script was run on (use the following format, note that the first line is a header line and should be left alone):
 ![Image](https://github.com/austineric/SimpleSQLServerSourceControl/blob/master/Images/ServersAndDatabasesExample.png?raw=true)
 5. Installation is complete
 
