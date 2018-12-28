@@ -43,12 +43,10 @@ $eventquery="SELECT [RowID], [EventTimestamp], [Server], [Database], [User], [Ob
 
 (Invoke-Sqlcmd $eventquery -ServerInstance $servername -Database $databasename -MaxCharLength 100000 | Out-GridView -OutputMode Multiple -Title "Choose two rows").RowID |
 Sort-Object -Property [0] | ForEach {
+    $filepath=".\" + $_ + ".txt"
 
-$filepath=".\" + $_ + ".txt"
+    $definitionquery="SELECT [Definition] FROM SourceControl WHERE RowID=" + $_
+    (Invoke-Sqlcmd $definitionquery -ServerInstance $servername -Database $databasename -MaxCharLength 100000).Definition | Out-File -FilePath $filepath
 
-$definitionquery="SELECT [Definition] FROM SourceControl WHERE RowID=" + $_
-(Invoke-Sqlcmd $definitionquery -ServerInstance $servername -Database $databasename -MaxCharLength 100000).Definition | Out-File -FilePath $filepath
-
-Start Notepad++ $filepath
-
+    Start Notepad++ $filepath
 }
