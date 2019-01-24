@@ -45,7 +45,7 @@ If ($destination -eq 0) {New-Item -ItemType Directory -Path ".\DefinitionFiles"}
 Remove-Item ".\DefinitionFiles\*"
 
 #display sourcecontrol results for user selection
-($data | Out-GridView -OutputMode Multiple -Title "Choose two rows") | Sort-Object -Property [0] | ForEach {
+($data | Out-GridView -OutputMode Multiple -Title "Choose two rows") | Sort-Object -Property RowID | ForEach {
     
     $filepath=".\DefinitionFiles\" + $_.RowID + ".txt"
 
