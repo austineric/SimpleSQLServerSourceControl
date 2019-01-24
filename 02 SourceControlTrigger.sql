@@ -1,37 +1,29 @@
 
+
 /*******************************
 Author:         Eric Austin - https://github.com/austineric/SimpleSQLServerSourceControl
 Create date:    November 2018
+Description:    Create trigger used in SimpleSQLSourceControl system
+
+This trigger should be created in any database where source control should be used
+
+IMPORTANT: if you have created the SourceControl table in a different database than the one where the trigger will reside,
+you must go to the "INSERT INTO SourceControl" statement below and change it to "INSERT INTO DatabaseName.SchemaName.SourceControl"
 *******************************/
 
---run these queries manually to ensure objects of the same name do not already exist in the database
-IF EXISTS (SELECT * FROM sys.tables WHERE name='SourceControl') 
-    PRINT 'Warning: a table named SourceControl already exists in this database.'
-    ELSE PRINT 'Okay to proceed with SourceControl table creation.'
+--ensure desired database is being used
+PRINT 'Make sure this is the database you want to create the trigger in: ' + DB_NAME()
 
+--check to ensure a trigger of the same name does not already exist in the database
 IF EXISTS (SELECT * FROM sys.triggers WHERE name='SourceControlTrigger') 
     PRINT 'Warning: a trigger named SourceControlTrigger already exists in this database.'
     ELSE PRINT 'Okay to proceed with SourceControlTrigger creation.'
 
+--exit to ensure the above statements are run before the trigger creation statement below
+RETURN;
 
---create source control table
-CREATE TABLE dbo.SourceControl
-    (
-    RowID INT IDENTITY(1,1)
-    ,EventTimestamp DATETIME
-    ,[Server] VARCHAR(255)
-    ,[Database] VARCHAR(255)
-    ,[User] VARCHAR(255)
-    ,ObjectName VARCHAR(255)
-    ,ObjectType VARCHAR(255)
-    ,[Action] VARCHAR(255)
-    ,[Definition] VARCHAR(MAX)
-    );
-    
-ALTER TABLE SourceControl ADD CONSTRAINT PK_SourceControl_RowID PRIMARY KEY CLUSTERED (RowID);
-GO
-
---create source control trigger
+--create source control trigger 
+--(SSMS may be warning that 'CREATE TRIGGER' must be the only statement in the batch; just run the CREATE TRIGGER statement separately from the above statements)
 CREATE TRIGGER SourceControlTrigger ON DATABASE
 FOR
     CREATE_PROCEDURE, ALTER_PROCEDURE, DROP_PROCEDURE
