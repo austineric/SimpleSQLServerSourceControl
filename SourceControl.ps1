@@ -5,7 +5,7 @@ Clear-Host
 
 Write-Host ""
 Write-Host "--------------------------------------------------------------------------------------------"
-Write-Host (" SimpleSQLServerSourceControl - https://github.com/austineric/SimpleSQLServerSourceControl " )
+Write-Host ("SimpleSQLServerSourceControl - https://github.com/austineric/SimpleSQLServerSourceControl  " )
 Write-Host "--------------------------------------------------------------------------------------------"
 Write-Host ""
 Write-Host "Running..."
