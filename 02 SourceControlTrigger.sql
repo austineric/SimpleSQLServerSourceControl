@@ -5,10 +5,7 @@ Author:         Eric Austin - https://github.com/austineric/SimpleSQLServerSourc
 Create date:    November 2018
 Description:    Create trigger used in SimpleSQLSourceControl system
 
-This trigger should be created in any database where source control should be used
-
-IMPORTANT: if you have created the SourceControl table in a different database than the one where the trigger will reside,
-you must go to the "INSERT INTO SourceControl" statement below and change it to "INSERT INTO DatabaseName.SchemaName.SourceControl"
+This trigger should be created in any database where source control should be implemented
 *******************************/
 
 --ensure desired database is being used
@@ -21,6 +18,11 @@ IF EXISTS (SELECT * FROM sys.triggers WHERE name='SourceControlTrigger')
 
 --exit to ensure the above statements are run before the trigger creation statement below
 RETURN;
+
+/*
+IMPORTANT: if you have created the SourceControl table in a different database than the one where the trigger will reside,
+you must go to the "INSERT INTO SourceControl" statement below and change it to "INSERT INTO DatabaseName.SchemaName.SourceControl"
+*/
 
 --create source control trigger 
 --(SSMS may be warning that 'CREATE TRIGGER' must be the only statement in the batch; just run the CREATE TRIGGER statement separately from the above statements)
