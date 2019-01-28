@@ -31,8 +31,9 @@ $sourcelist | ForEach {
     $databasename=$_.Database
 
     #build query
-    $eventquery="SELECT [RowID], [EventTimestamp], [Server], [Database], [User], [ObjectName], [ObjectType], [Action], '$databasename' AS 'SourceControlDatabase' FROM SourceControl ORDER BY RowID DESC;"
+    $eventquery="EXECUTE SourceControlProc"
 
+    #essentially union all source control results from each data source
     $data+=@(Invoke-Sqlcmd $eventquery -ServerInstance $servername -Database $databasename -MaxCharLength 100000 )
 
     }
@@ -45,7 +46,7 @@ If ($destination -eq 0) {New-Item -ItemType Directory -Path ".\DefinitionFiles"}
 Remove-Item ".\DefinitionFiles\*"
 
 #display sourcecontrol results for user selection
-(($data | Sort-Object -Property EventTimestamp, RowID -Descending) | Out-GridView -OutputMode Multiple -Title "Choose two rows") | Sort-Object -Property RowID | ForEach {
+(($data | Sort-Object -Property EventTimestamp, RowID -Descending) | Out-GridView -OutputMode Multiple -Title "Choose one or more rows") | Sort-Object -Property RowID | ForEach {
     
     $filepath=".\DefinitionFiles\" + $_.RowID + ".txt"
 
